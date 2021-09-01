@@ -137,7 +137,7 @@ app.use((err, req, res, next) => { //err aca es el err de arriba que paso como p
     //res.send('awew');
 })
 
-
-app.listen(3000, () => {
-    console.log('Running');
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Running - Port: ${port}`);
 })
