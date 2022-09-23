@@ -3,7 +3,7 @@
 ## Final project of [The Web Developer Bootcamp 2022](https://www.udemy.com/course/the-web-developer-bootcamp/).
 
 
-<br>You can visit the app [here](aqueous-atoll-10078.herokuapp.com).
+<br>You can visit the app [here](http://aqueous-atoll-10078.herokuapp.com).
 
 ### Front-End
 - JavaScript - EJS
