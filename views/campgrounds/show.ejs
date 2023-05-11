@@ -36,7 +36,7 @@
             </ul>
             <% if (currentUser && foundCamp.author.equals(currentUser._id)) {%> 
             <div class="card-body">
-                <a class="card-link btn btn-info" href="/campgrounds/<%=foundCamp._id%>/edit">Edit Camp</a>
+                <a class="card-link btn btn-info mb-2" href="/campgrounds/<%=foundCamp._id%>/edit">Edit Camp</a>
                 <form clas="d-inline" action="/campgrounds/<%=foundCamp._id%>?_method=DELETE" method="POST">
                     <button class="btn btn-danger">Delete</button>
                 </form>
@@ -49,7 +49,7 @@
     </div>
     <div class="col-6">
         <div id='map'></div>
-        <% if(currentUser){%> 
+        <% if(currentUser && !foundCamp.author.equals(currentUser._id)){%> 
         <h2 class="mt-5">Leave a review!</h2>
         <form action="/campgrounds/<%=foundCamp._id%>/reviews" method="POST" class="mb-5 validated-form" novalidate>
             <!-- class= "validated-form" es la funcion en boilerplate.js-->
@@ -66,7 +66,9 @@
             </div>
             <button class="btn btn-success">Submit review</button>
         </form>
-        <% } %> 
+        <% } else {%> 
+                <p class="card-text text-secondary fw-light fst-italic">You can't review your own camp</p>
+                <% } %> 
         <h3><%=foundCamp.title%>  reviews</h3>
         <% if (foundCamp.reviews.length) {%> 
             <% for (let r of foundCamp.reviews) {%> 
@@ -90,11 +92,6 @@
             <% } %> 
     </div>
 </div>
-
-<footer>
-    <a href="/campgrounds/<%=foundCamp._id%>/edit">Edit Camp</a>
-    <a href="/campgrounds">Show all Camps</a>
-</footer>
 
 <script>//If we move the code to another file, the map will not show.
     const mapToken = '<%-process.env.MAPBOX_TOKEN%>';

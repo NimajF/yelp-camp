@@ -1,9 +1,6 @@
 <% layout('layouts/boilerplate') %> 
     <div id="mapIndex"></div>
-    <h1>All Campgrounds</h1>
-    <div>
-        <a href="/campgrounds/new">Add Campground</a>
-    </div>
+    <h1 class="mb-4 mt-5">All Campgrounds</h1>
     
     <section class="gallery">
         <div class="container-lg">
@@ -12,12 +9,12 @@
                     <% for (let c of campgrounds){ %>
     
                         <div class="card mb-3">
-                            <div class="row">
+                            <div class="row h-100">
                                 <div class="col-sm-6 col-md-4 col-lg-3">
                                     <% if(c.images.length) {%> 
-                                    <img class="img-fluid" alt="" src="<%=c.images[0].url%>">
+                                    <img style="max-height: 200px;" class="card-img-top img-fluid h-100" alt="<%=c.title%>" src="<%=c.images[0].url%>">
                                     <% }else {%>
-                                         <img class="img-fluid" alt="" src="">
+                                         <img style="max-height: 300px;" class="card-img-top img-fluid h-100" alt="<%=c.title%>" src="">
                                     <% } %> 
                                 </div>
                                 <div class="col-6">
